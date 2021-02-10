@@ -13,7 +13,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     console.log("component did mount");
-    window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
+    window.addEventListener("flutterInAppWebViewPlatformReady", (event) => {
       console.log("flutter is connected");
       window.flutter_inappwebview.callHandler('pdfUrlGetHandler', "test")
         .then((fileDetailsJson) => {
