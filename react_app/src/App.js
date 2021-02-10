@@ -11,6 +11,18 @@ export default class App extends React.Component {
   }
 
 
+  componentDidMount() {
+    console.log("component did mount");
+    window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
+      console.log("flutter is connected");
+      window.flutter_inappwebview.callHandler('pdfUrlGetHandler', "test")
+        .then((result) => {
+          console.log("setting url as " + result);
+          setUrl(result);
+          console.log("set state has been performed");
+        });
+    });
+  }
 
   setUrl = (result) => {
     console.log("inside setUrl method in javascript");
