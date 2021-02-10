@@ -7,7 +7,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isPdfUrlRecieved: false, pdfUrl: "", count: 0 };
+    this.state = { isPdfUrlRecieved: false, fileLink: "", count: 0, fileName: "" };
   }
 
 
@@ -16,34 +16,38 @@ export default class App extends React.Component {
     window.addEventListener("flutterInAppWebViewPlatformReady", function (event) {
       console.log("flutter is connected");
       window.flutter_inappwebview.callHandler('pdfUrlGetHandler', "test")
-        .then((result) => {
-          console.log("setting url as " + result);
-          setUrl(result);
+        .then((fileDetailsJson) => {
+          console.log("setting url as " + fileDetailsJson.link);
+          this.setData(fileDetailsJson.name, fileDetailsJson.link);
           console.log("set state has been performed");
         });
     });
   }
 
-  setUrl = (result) => {
-    console.log("inside setUrl method in javascript");
-    this.setState({ isPdfUrlRecieved: true, pdfUrl: result });
+  setData = (name, link) => {
+    console.log("inside setData method in javascript");
+    this.setState({ isPdfUrlRecieved: true, fileLink: link, fileName: name });
   }
 
   render() {
     return (
       this.state.isPdfUrlRecieved ?
-        <PDFViewer
-          document={{
-            // url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-            // url: 'http://www.africau.edu/images/default/sample.pdf'
-            // url: 'https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf'
-            // url: 'https://cors-anywhere.herokuapp.com/https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf',
-            url: this.state.pdfUrl,
-          }}
-        />
-        : <div onClick={() => this.setUrl('https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf')}>
-          <h1>Waiting for flutter to send pdf link [{this.state.count}]</h1>
+        <div>
+          <h1>File Name : {this.state.fileName}</h1>
+          <PDFViewer
+            document={{
+              // url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+              // url: 'http://www.africau.edu/images/default/sample.pdf'
+              // url: 'https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf'
+              // url: 'https://cors-anywhere.herokuapp.com/https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf',
+              url: this.state.fileLink,
+            }}
+          />
         </div>
+
+        : <div onClick={() => this.setData("African PDF", 'https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf')}>
+          < h1 > Click here to see sample change </h1 >
+        </div >
     )
   }
 }
