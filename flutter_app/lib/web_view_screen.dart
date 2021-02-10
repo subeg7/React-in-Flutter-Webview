@@ -11,7 +11,7 @@ class WebViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      color: Colors.blue,
+      color: Colors.teal,
       child: SafeArea(
         child: InAppWebView(
           initialOptions: InAppWebViewGroupOptions(

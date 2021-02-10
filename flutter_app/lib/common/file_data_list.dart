@@ -1,12 +1,32 @@
+const String herokuCorsProtection = "https://cors-anywhere.herokuapp.com/";
 const List<Map<String, dynamic>> fileListMap = [
-  {"name": "South Bhuta", "link": "sfssfs1", "size": "12.5 KB"},
-  {"name": "Sudan Pdf", "link": "sdfasdfa fadsfsdfsfsfa 1", "size": "12.5 KB"},
-  {"name": "Amazing 1", "link": "Ffasdfasdfasdfasfaile 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "sfsdfasdfasfsdfdfffdasdfsaasdasdfasfasdfsadFile 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "Fiaasdfasdfaasdfasdfsafle 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "adasdfasdfafFisdfafdadfale 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "rqreqrFivcvxzve eqele 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "F23423tergdgfile 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "Fierqtegxr34le 1", "size": "12.5 KB"},
-  // {"name": "File 1", "link": "xcvzvcxvFilzxcvzvzvze 1", "size": "12.5 KB"},
+  {
+    "name": "Adobe",
+    "link":
+        herokuCorsProtection +"https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
+    "size": "12.5 KB"
+  },
+  {
+    "name": "Sample ",
+    "link":
+        "https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf",
+    "size": "12.5 KB"
+  },
+  {
+    "name": "Error file",
+    "link":
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "size": "12.5 KB"
+  },
+  {
+    "name": "Dummy PDF",
+    "link": herokuCorsProtection +
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+    "size": "12.5 KB"
+  },
+  {
+    "name": "5 Page File",
+    "link": herokuCorsProtection + "http://www.pdf995.com/samples/pdf.pdf",
+    "size": "12.5 KB"
+  },
 ];

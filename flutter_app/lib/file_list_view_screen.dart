@@ -9,9 +9,9 @@ class FileListViewScreen extends StatefulWidget {
 }
 
 class _FileListViewScreenState extends State<FileListViewScreen> {
-  final files = fileListMap;
   @override
   Widget build(BuildContext context) {
+  List files = [...fileListMap,...fileListMap];
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -23,7 +23,7 @@ class _FileListViewScreenState extends State<FileListViewScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text("Click on of the file below"),
+                Text("Click on one of the file below"),
                 SizedBox(height: 10),
                 _buildFileColumn(files),
               ],
