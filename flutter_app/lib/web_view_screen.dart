@@ -35,7 +35,10 @@ class WebViewScreen extends StatelessWidget {
             controller.addJavaScriptHandler(
                 handlerName: 'pdfUrlGetHandler',
                 callback: (args) {
-                  return fileLink;
+                  return {
+                    "name": fileName,
+                    "link": fileLink,
+                  };
                 });
           },
           onDownloadStart: (controller, string) {

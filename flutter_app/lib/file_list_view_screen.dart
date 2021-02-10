@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/veb_view_screen.dart';
+import 'package:flutter_app/web_view_screen.dart';
 
 import 'common/file_data_list.dart';
 
