@@ -47,7 +47,15 @@ class _FileListViewScreenState extends State<FileListViewScreen> {
       children: [
         InkWell(
           onTap: () {
-           
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WebViewScreen(
+                  fileLink: fileMap["link"],
+                  fileName: fileMap["name"],
+                ),
+              ),
+            );
           },
           child: Container(
             padding: EdgeInsets.all(10),

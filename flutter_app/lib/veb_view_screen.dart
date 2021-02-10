@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebViewScreen extends StatelessWidget {
+  final String fileName;
+  final String fileLink;
+
+  const WebViewScreen({Key key, this.fileName, this.fileLink})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +35,7 @@ class WebViewScreen extends StatelessWidget {
             controller.addJavaScriptHandler(
                 handlerName: 'pdfUrlGetHandler',
                 callback: (args) {
-                  return 'https://cors-anywhere.herokuapp.com/https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf';
-                  // return "test";
+                  return fileLink;
                 });
           },
           onDownloadStart: (controller, string) {
