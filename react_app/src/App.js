@@ -1,52 +1,38 @@
 import React from 'react'
-
 import PDFViewer from 'pdf-viewer-reactjs'
 
-// const ExamplePDFViewer = () => {
+const herokuCorsProtectionUrl = "https://cors-anywhere.herokuapp.com/";
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isPdfUrlRecieved: false, fileLink: "", count: 0, fileName: "" };
+    this.state = {
+      hasEventOccurred: false,
+      fileLink: "",
+      fileName: ""
+    };
   }
 
-
-  componentDidMount() {
-    console.log("component did mount");
-    window.addEventListener("flutterInAppWebViewPlatformReady", (event) => {
-      console.log("flutter is connected");
-      window.flutter_inappwebview.callHandler('pdfUrlGetHandler', "test")
-        .then((fileDetailsJson) => {
-          console.log("setting url as " + fileDetailsJson.link);
-          this.setData(fileDetailsJson.name, fileDetailsJson.link);
-          console.log("set state has been performed");
-        });
-    });
-  }
-
-  setData = (name, link) => {
+  handleEvent = (name, link) => {
     console.log("inside setData method in javascript");
-    this.setState({ isPdfUrlRecieved: true, fileLink: link, fileName: name });
+    this.setState({ hasEventOccurred: true, fileLink: link, fileName: name });
   }
 
   render() {
     return (
-      this.state.isPdfUrlRecieved ?
+      this.state.hasEventOccurred ?
         <div>
-          <h1>File Name : {this.state.fileName}</h1>
+          <h3>File Name : {this.state.fileName}</h3>
           <PDFViewer
             document={{
-              // url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-              // url: 'http://www.africau.edu/images/default/sample.pdf'
-              // url: 'https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf'
-              // url: 'https://cors-anywhere.herokuapp.com/https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf',
-              url: this.state.fileLink,
+              url: this.state.fileLink
             }}
           />
         </div>
 
-        : <div onClick={() => this.setData("African PDF", 'https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf')}>
-          < h1 > Click here to see sample change </h1 >
+        : <div onClick={() => this.handleEvent("African PDF", herokuCorsProtectionUrl + 'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf?hsLang=en')}>
+          < h2> No event has occurred yet</h2 >
+          < h3>click to see sample change</h3 >
         </div >
     )
   }
