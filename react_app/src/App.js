@@ -17,6 +17,15 @@ export default class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener("flutterInAppWebViewPlatformReady", (event) => {
+      window.flutter_inappwebview.callHandler('fileDetailsHandler', "test")
+        .then((fileDetailsJson) => {
+          this.handleEvent(fileDetailsJson.name, fileDetailsJson.link);
+        });
+    });
+  }
+
   handleEvent = (name, link) => {
     console.log("inside the handleEvent method");
     this.setState({ hasEventOccurred: true, fileLink: link, fileName: name });
