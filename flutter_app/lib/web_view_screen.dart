@@ -31,7 +31,16 @@ class WebViewScreen extends StatelessWidget {
             ),
           ),
           initialFile: "assets/react_pdf_app/index.html",
-          onWebViewCreated: (InAppWebViewController controller) {},
+          onWebViewCreated: (InAppWebViewController controller) {
+            controller.addJavaScriptHandler(
+                handlerName: 'fileDetailsHandler',
+                callback: (args) {
+                  return {
+                    "name": fileName,
+                    "link": fileLink,
+                  };
+                });
+          },
           onConsoleMessage: (controller, message) {},
           onDownloadStart: (controller, string) {},
         ),
