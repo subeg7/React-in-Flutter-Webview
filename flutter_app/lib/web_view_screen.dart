@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
+const samplePdfName = "First PDF from flutter";
+const samplePdfLink = "http://www.pdf995.com/samples/pdf.pdf";
+
 class WebViewScreen extends StatelessWidget {
   final String fileName;
   final String fileLink;
 
-  const WebViewScreen({Key key, this.fileName, this.fileLink})
+  const WebViewScreen(
+      {Key key, this.fileName = samplePdfName, this.fileLink = samplePdfLink})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: MediaQuery.of(context).size.height,
       color: Colors.teal,
       child: SafeArea(
         child: InAppWebView(
           initialOptions: InAppWebViewGroupOptions(
             crossPlatform: InAppWebViewOptions(
-              debuggingEnabled: true,
               useOnDownloadStart: true,
               javaScriptCanOpenWindowsAutomatically: true,
               javaScriptEnabled: true,
@@ -27,23 +31,9 @@ class WebViewScreen extends StatelessWidget {
             ),
           ),
           initialFile: "assets/react_pdf_app/index.html",
-          onConsoleMessage: (controller, message) {
-            print(message);
-          },
-          onWebViewCreated: (InAppWebViewController controller) {
-            print("web view is created");
-            controller.addJavaScriptHandler(
-                handlerName: 'pdfUrlGetHandler',
-                callback: (args) {
-                  return {
-                    "name": fileName,
-                    "link": fileLink,
-                  };
-                });
-          },
-          onDownloadStart: (controller, string) {
-            print("file is getting downloaded");
-          },
+          onWebViewCreated: (InAppWebViewController controller) {},
+          onConsoleMessage: (controller, message) {},
+          onDownloadStart: (controller, string) {},
         ),
       ),
     );
