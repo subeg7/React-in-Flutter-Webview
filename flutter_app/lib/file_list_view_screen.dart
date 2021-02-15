@@ -11,12 +11,12 @@ class FileListViewScreen extends StatefulWidget {
 class _FileListViewScreenState extends State<FileListViewScreen> {
   @override
   Widget build(BuildContext context) {
-  List files = [...fileListMap,...fileListMap];
+    List files = fileListMap;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.teal,
-          title: Text("Lists"),
+          title: Text("PDF Lists"),
         ),
         body: Container(
           padding: EdgeInsets.all(10),

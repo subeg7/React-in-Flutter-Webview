@@ -1,32 +1,25 @@
-const String herokuCorsProtection = "https://cors-anywhere.herokuapp.com/";
 const List<Map<String, dynamic>> fileListMap = [
   {
-    "name": "Adobe",
+    "name": "Flutter Development PDF",
     "link":
-        herokuCorsProtection +"https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
-    "size": "12.5 KB"
+        "https://androidatc.com/upload/editor_upload/file/Flutter-Application-Development_Course-Outline.pdf"
   },
   {
-    "name": "Sample ",
-    "link":
-        "https://cors-anywhere.herokuapp.com/http://www.africau.edu/images/default/sample.pdf",
-    "size": "12.5 KB"
-  },
-  {
-    "name": "Error file",
-    "link":
-        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-    "size": "12.5 KB"
-  },
-  {
-    "name": "Dummy PDF",
-    "link": herokuCorsProtection +
-        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-    "size": "12.5 KB"
+    "name": "Tutorialspoint Flutter",
+    "link": "https://www.tutorialspoint.com/flutter/flutter_tutorial.pdf"
   },
   {
     "name": "5 Page File",
-    "link": herokuCorsProtection + "http://www.pdf995.com/samples/pdf.pdf",
-    "size": "12.5 KB"
+    "link": "http://www.pdf995.com/samples/pdf.pdf",
+  },
+  {
+    "name": "Adobe PDF",
+    "link":
+        "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf",
+  },
+  {
+    "name": "Dummy PDF",
+    "link":
+        "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
   },
 ];
