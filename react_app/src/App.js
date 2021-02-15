@@ -2,8 +2,8 @@ import React from 'react'
 import PDFViewer from 'pdf-viewer-reactjs'
 
 const samplePdfDetails = {
-  "fileName": "Flutter PDF article",
-  "fileLink": "https://ijesc.org/upload/b3930ac14331fd1b425af8cd1c341d41.Cross%20Platform%20Development%20using%20Flutter%20(1).pdf",
+  "fileName": "React.js PDF article",
+  "fileLink": "https://websitesetup.org/wp-content/uploads/2020/09/Javascript-Cheat-Sheet.pdf",
 }
 export default class App extends React.Component {
 
